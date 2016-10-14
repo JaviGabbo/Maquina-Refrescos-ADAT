@@ -7,7 +7,7 @@ public class Visor {
 	}
 	
 	public void mostrarSaldo(int saldo){
-		System.out.println(saldo);
+		System.out.println("\nSALDO: " + saldo + "cent.\n");
 	}
 	
 	public void mostrarPrecio(int precio){
@@ -15,7 +15,7 @@ public class Visor {
 	}
 	
 	public void mostrarError(String error){
-		System.out.println(error);
+		System.err.println(error + "\n");
 	}
 	
 	public void mostrarDespedida(){

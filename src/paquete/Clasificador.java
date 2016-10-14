@@ -7,13 +7,14 @@ public class Clasificador {
 	public Intermediario inter;
 	
 	
-	int saldo = 0;
+	private int saldo = 0;
+	private int numMonedas = 0;
 	Visor visor;
 	HashMap<Integer, Deposito> depositos;
 	HashMap<String, Dispensador> dispensadores;
 	
 	public Clasificador() {
-		depositos = new HashMap<Integer, Deposito>();
+		
 		
 	}
 	
@@ -22,6 +23,15 @@ public class Clasificador {
 		depositos.get(moneda).sumar();
 		saldo = saldo + moneda;
 		visor.mostrarSaldo(saldo);
+	}
+	
+	public void retornarMonedas(){
+		if (numMonedas == 0) {
+			visor.mostrarError("No hay monedas que retornar.");
+		} else {
+			System.out.println("wohoohaaa");
+		}
+		
 	}
 	
 	
@@ -37,15 +47,6 @@ public class Clasificador {
 
 	
 	
-	
-	
-	
-	public void retornarMonedas(){
-		
-		
-	}
-	
-	
 	public void seleccionarProducto(String nombreProducto){
 		
 		
@@ -54,6 +55,11 @@ public class Clasificador {
 
 	public void setIntermediario(Intermediario intermediario){
 		this.inter = intermediario;
+	}
+	
+	
+	public void setDepositos(HashMap<Integer, Deposito> depositos){
+		this.depositos = depositos;
 	}
 	
 	
