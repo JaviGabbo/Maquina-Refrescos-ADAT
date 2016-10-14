@@ -2,10 +2,21 @@ package paquete;
 
 public class Deposito {
 
-	int valor;
-	int cantidad;
+	public Deposito(int valor, int cantidad) {
+		super();
+		this.valor = valor;
+		this.cantidad = cantidad;
+	}
+	int valor=0;
+	int cantidad=0;
 	
-	public void sumar(){}
+	
+	
+	public void sumar(){
+		
+		cantidad++;
+		
+	}
 	public void restar(){}
 	
 }

@@ -9,6 +9,7 @@ public class Intermediario {
 	Visor visor;
 	Retorno botonRetorno;
 	Dispensador dispensador1;
+	
 	Seleccion boton1;
 	Seleccion boton2;
 	Seleccion boton3;
@@ -23,6 +24,7 @@ public class Intermediario {
 		clasificador = new Clasificador();
 		visor = new Visor();
 		botonRetorno = new Retorno(clasificador);
+	
 		dispensador1 = new Dispensador();
 		boton1 = new Seleccion(clasificador);
 		boton2 = new Seleccion(clasificador);
@@ -31,8 +33,19 @@ public class Intermediario {
 		boton5 = new Seleccion(clasificador);
 		boton6 = new Seleccion(clasificador);
 		
+		
+		crearDepositos();
+		
+		setClasificador(clasificador);
+		clasificador.setIntermediario(this);
+		
+		
+		
+		
 	}
 	
+
+
 	public void ejecucion(){
 
 	//String nombreProducto = null;
@@ -43,14 +56,14 @@ public class Intermediario {
 	do {
 
 		System.out.println(
-				"¿Qué quieres hacer?\nPulsa 1 para insertar moneda.\nPulsa 2 para retornar moneda.\nPulsa 3 para seleccionar bebida.\nPulsa 4 para salir.");
+				"Â¿Que quieres hacer?\nPulsa 1 para insertar moneda.\nPulsa 2 para retornar moneda.\nPulsa 3 para seleccionar bebida.\nPulsa 4 para salir.");
 		System.out.println();
 
 		opcion = scan.nextInt();
 
 		switch (opcion) {
 		case 1:
-			
+			insertarMoneda();
 			break;
 
 		case 2:
@@ -66,7 +79,7 @@ public class Intermediario {
 			break;
 
 		default:
-			System.out.println("Introduce una opción válida.");
+			System.out.println("Introduce una opcion valida.");
 			break;
 
 		}
@@ -86,12 +99,73 @@ public class Intermediario {
 	 * 
 	 * case 6: nombreProducto = "Agua"; break;
 	 * 
-	 * default: System.out.println("Introduce un número del 1 al 6.");
+	 * default: System.out.println("Introduce un nï¿½mero del 1 al 6.");
 	 * break; }
 	 */
 	}
 
 
-public void insertarMoneda(){}
+public void insertarMoneda(){
+	
+	System.out.println("Â¿QuÃ© moneda quieres introducir?\nEscribe:\n10 para moneda de 10cent.\n20 para moneda de 20cent.\n50 para moneda de 50cent.\n1 para moneda de 1EUR.\n2 para moneda de 2EUR.");
+	int moneda = scan.nextInt();
+	
+	switch (moneda) {
+	case 1:
+		System.out.println("Has introducido moneda de 1EUR.");
+		clasificador.insertarMoneda(moneda);
+		break;
+		
+	case 2:
+		System.out.println("Has introducido moneda de 2EUR.");
+		clasificador.insertarMoneda(moneda);
+		break;
+		
+	case 10:
+		System.out.println("Has introducido moneda de 10cent.");
+		clasificador.insertarMoneda(moneda);
+		break;
+		
+	case 20:
+		System.out.println("Has introducido moneda de 20cent.");
+		clasificador.insertarMoneda(moneda);
+		break;
+		
+	case 50:
+		System.out.println("Has introducido moneda de 50cent.");
+		clasificador.insertarMoneda(moneda);
+		break;
+		
+	default:
+		System.out.println("No has introducido un valor valido.");
+		break;
+	}
+	
+	
+	
+}
+
+
+public void crearDepositos(){
+	
+	Deposito dep1 = new Deposito(10,3);
+	Deposito dep2 = new Deposito(20,3);
+	Deposito dep3 = new Deposito(50,3);
+	Deposito dep4 = new Deposito(1,3);
+	Deposito dep5 = new Deposito(2,3);
+	
+}
+
+
+
+public void setClasificador(Clasificador clasificador) {
+	this.clasificador = clasificador;
+}
+
+
+
+
+
+
 
 }
