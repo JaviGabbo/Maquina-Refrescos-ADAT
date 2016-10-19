@@ -9,7 +9,7 @@ public class Deposito {
 	}
 
 	private int valor;
-	private int cantidad = 0;
+	private int cantidad;
 
 	public void sumar() {
 		cantidad++;

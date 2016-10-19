@@ -93,5 +93,9 @@ public class Clasificador {
 	public void setDepositos(TreeMap<Integer, Deposito> depositos) {
 		this.depositos = depositos;
 	}
+	
+	public void setDispensadores(HashMap<String, Dispensador> dispensadores) {
+		this.dispensadores = dispensadores;
+	}
 
 }

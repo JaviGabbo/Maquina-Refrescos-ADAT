@@ -11,7 +11,6 @@ public class Intermediario {
 	Clasificador clasificador;
 	Visor visor;
 	Retorno botonRetorno;
-	Dispensador dispensador1;
 
 	Seleccion boton1;
 	Seleccion boton2;
@@ -27,7 +26,7 @@ public class Intermediario {
 		visor = new Visor();
 		botonRetorno = new Retorno(clasificador);
 
-		dispensador1 = new Dispensador();
+		
 		boton1 = new Seleccion(clasificador);
 		boton2 = new Seleccion(clasificador);
 		boton3 = new Seleccion(clasificador);
@@ -121,6 +120,40 @@ public class Intermediario {
 		
 		clasificador.setDepositos(depositos);
 
+	}
+	
+	
+	public void crearDispensadores(){
+		
+		HashMap <String, Dispensador> dispensadores = new HashMap<String, Dispensador>();
+		
+		Dispensador cocacola = new Dispensador(60, 2);
+		dispensadores.put("Coca Cola", cocacola);
+		
+		Dispensador nestea = new Dispensador(40, 2);
+		dispensadores.put("Nestea", nestea);
+		
+		Dispensador pepsi = new Dispensador(80, 2);
+		dispensadores.put("Pepsi", pepsi);
+		
+		Dispensador fanta = new Dispensador(70, 2);
+		dispensadores.put("Fanta", fanta);
+		
+		Dispensador aquarius = new Dispensador(65, 2);
+		dispensadores.put("Aquarius", aquarius);
+		
+		Dispensador monster = new Dispensador(120, 2);
+		dispensadores.put("Monster", monster);
+		
+		Dispensador redbull = new Dispensador(100, 2);
+		dispensadores.put("Red Bull", redbull);
+		
+		Dispensador agua = new Dispensador(30, 2);
+		dispensadores.put("Agua", agua);
+		
+		clasificador.setDispensadores(dispensadores);
+		
+		
 	}
 
 	public void setClasificador(Clasificador clasificador) {
