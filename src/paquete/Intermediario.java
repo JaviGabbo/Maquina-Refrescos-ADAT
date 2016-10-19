@@ -99,19 +99,19 @@ public class Intermediario {
 		
 		HashMap<Integer, Deposito> depositos = new HashMap<Integer, Deposito>();
 
-		Deposito dep1 = new Deposito(10, 3);
+		Deposito dep1 = new Deposito(10, 5);
 		depositos.put(10, dep1);
 
-		Deposito dep2 = new Deposito(20, 3);
+		Deposito dep2 = new Deposito(20, 5);
 		depositos.put(20, dep2);
 
-		Deposito dep3 = new Deposito(50, 3);
+		Deposito dep3 = new Deposito(50, 5);
 		depositos.put(50, dep3);
 
-		Deposito dep4 = new Deposito(100, 3);
+		Deposito dep4 = new Deposito(100, 5);
 		depositos.put(100, dep4);
 
-		Deposito dep5 = new Deposito(200, 3);
+		Deposito dep5 = new Deposito(200, 5);
 		depositos.put(200, dep5);
 		
 		clasificador.setDepositos(depositos);

@@ -7,16 +7,17 @@ public class Deposito {
 		this.valor = valor;
 		this.cantidad = cantidad;
 	}
-	int valor=0;
-	int cantidad=0;
-	
-	
-	
-	public void sumar(){
-		
+
+	int valor;
+	int cantidad = 0;
+
+	public void sumar() {
+
 		cantidad++;
-		
+
 	}
-	public void restar(){}
-	
+
+	public void restar() {
+	}
+
 }
