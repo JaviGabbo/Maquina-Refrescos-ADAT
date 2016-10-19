@@ -35,6 +35,7 @@ public class Intermediario {
 		boton6 = new Seleccion(clasificador);
 
 		crearDepositos();
+		crearDispensadores();
 
 		setClasificador(clasificador);
 		clasificador.setIntermediario(this);
@@ -67,11 +68,11 @@ public class Intermediario {
 				break;
 
 			case 3:
-
+				clasificador.seleccionarProducto(eligeProducto());
 				break;
 
 			case 4:
-
+				visor.mostrarDespedida();
 				break;
 
 			default:
@@ -95,6 +96,16 @@ public class Intermediario {
 			System.out.println("No has introducido un valor valido.");
 		}
 	}
+	
+	public String eligeProducto(){
+		String producto = "";
+		
+		System.out.println("Productos disponibles:\nCoca Cola, Nestea, Pepsi, Fanta, Aquarius, Monster, Red Bull, Agua.\nEscribe el producto que deseas.");
+		scan.nextLine();
+		producto = scan.nextLine();
+		return producto;
+	}
+	
 
 	public void crearDepositos() {
 		
@@ -127,7 +138,7 @@ public class Intermediario {
 		
 		HashMap <String, Dispensador> dispensadores = new HashMap<String, Dispensador>();
 		
-		Dispensador cocacola = new Dispensador(60, 2);
+		Dispensador cocacola = new Dispensador(60, 1);
 		dispensadores.put("Coca Cola", cocacola);
 		
 		Dispensador nestea = new Dispensador(40, 2);

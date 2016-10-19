@@ -11,11 +11,15 @@ public class Visor {
 	}
 	
 	public void mostrarPrecio(int precio){
-		System.out.println(precio);
+		System.out.println("Precio: " + precio + "cent.");
 	}
 	
 	public void mostrarError(String error){
 		System.err.println(error + "\n");
+	}
+	
+	public void mostrarMensaje(String mensaje){
+		System.out.println(mensaje + "\n");
 	}
 	
 	public void mostrarDespedida(){

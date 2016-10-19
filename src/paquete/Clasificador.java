@@ -83,7 +83,25 @@ public class Clasificador {
 	}
 
 	public void seleccionarProducto(String nombreProducto) {
+		int precio = dispensadores.get(nombreProducto).getValor();
+		int cantidad = dispensadores.get(nombreProducto).getCantidad();
+		visor.mostrarPrecio(precio);
+		visor.mostrarSaldo(saldo);
 
+		if (saldo >= precio) {
+			if (cantidad > 0) {
+				visor.mostrarMensaje("Realizando compra\n.\n.\n.");
+				saldo -= precio;
+				System.out.println("Cantidad de producto: " + cantidad);
+				dispensadores.get(nombreProducto).dispensar();
+				retornarMonedas();
+			} else {
+				visor.mostrarMensaje("Sin existencias.");
+				retornarMonedas();
+			}
+		} else {
+			System.out.println("No hay saldo suficiente, te faltan " + (precio - saldo) + "cent.\n");
+		}
 	}
 
 	public void setIntermediario(Intermediario intermediario) {
@@ -93,7 +111,7 @@ public class Clasificador {
 	public void setDepositos(TreeMap<Integer, Deposito> depositos) {
 		this.depositos = depositos;
 	}
-	
+
 	public void setDispensadores(HashMap<String, Dispensador> dispensadores) {
 		this.dispensadores = dispensadores;
 	}
