@@ -5,5 +5,7 @@ public class Dispensador {
 	float precio;
 	int cantidad;
 	
-	public void dispensar(){}
+	public void dispensar(){
+		 cantidad--;
+	}
 }

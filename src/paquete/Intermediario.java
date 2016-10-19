@@ -1,7 +1,9 @@
 package paquete;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Intermediario {
 
@@ -85,10 +87,10 @@ public class Intermediario {
 	public void insertarMoneda() {
 
 		System.out.println(
-				"¿Qué moneda quieres introducir?\nEscribe:\n10 para moneda de 10cent.\n20 para moneda de 20cent.\n50 para moneda de 50cent.\n100 para moneda de 1EUR.\n200 para moneda de 2EUR.");
+				"¿Qué moneda quieres introducir?\nEscribe:\n5 para moneda de 5cent.\n10 para moneda de 10cent.\n20 para moneda de 20cent.\n50 para moneda de 50cent.\n100 para moneda de 1EUR.\n200 para moneda de 2EUR.");
 		int moneda = scan.nextInt();
 
-		if (moneda == 10 || moneda == 20 || moneda == 50 || moneda == 100 || moneda == 200) {
+		if (moneda == 5 || moneda == 10 || moneda == 20 || moneda == 50 || moneda == 100 || moneda == 200) {
 			clasificador.insertarMoneda(moneda);
 		} else {
 			System.out.println("No has introducido un valor valido.");
@@ -97,8 +99,11 @@ public class Intermediario {
 
 	public void crearDepositos() {
 		
-		HashMap<Integer, Deposito> depositos = new HashMap<Integer, Deposito>();
+		TreeMap<Integer, Deposito> depositos = new TreeMap<Integer, Deposito>(Collections.reverseOrder());
 
+		Deposito dep = new Deposito(5, 5);
+		depositos.put(5, dep);
+		
 		Deposito dep1 = new Deposito(10, 5);
 		depositos.put(10, dep1);
 

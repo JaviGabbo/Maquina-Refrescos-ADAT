@@ -1,10 +1,16 @@
 package paquete;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.NavigableMap;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Clasificador {
 
@@ -13,7 +19,7 @@ public class Clasificador {
 	private int saldo = 0;
 	private int numMonedas = 0;
 	Visor visor;
-	HashMap<Integer, Deposito> depositos;
+	TreeMap<Integer, Deposito> depositos;
 	HashMap<String, Dispensador> dispensadores;
 
 	public Clasificador() {
@@ -28,18 +34,42 @@ public class Clasificador {
 	}
 
 	public void retornarMonedas() {
+
 		if (numMonedas == 0) {
 			visor.mostrarError("No hay monedas que retornar.");
 
 		} else {
-			Map depOrdenado = new TreeMap<>(depositos);
-			Set ref = depOrdenado.keySet();
-			Iterator it = ref.iterator();
+
+			Set set = depositos.entrySet();
+			Iterator it = set.iterator();
+
 			while (it.hasNext()) {
-				System.out.println((Integer) it.next());
+
+				Map.Entry entry = (Map.Entry) it.next();
+
+				while (saldo != 0) {
+
+					Integer key = (Integer) entry.getKey();
+					Deposito value = (Deposito) entry.getValue();
+
+					if (saldo >= key) {
+
+						if (value.getCantidad() > 0) {
+							saldo -= value.getValor();
+							value.restar();
+							System.out.println("Devuelve moneda de " + value.getValor() + "cent.\n");
+
+						} else {
+							entry = (Map.Entry) it.next();
+
+						}
+					} else {
+						entry = (Map.Entry) it.next();
+					}
+				}
+
 			}
 
-			System.out.println("\n");
 		}
 
 	}
@@ -60,7 +90,7 @@ public class Clasificador {
 		this.inter = intermediario;
 	}
 
-	public void setDepositos(HashMap<Integer, Deposito> depositos) {
+	public void setDepositos(TreeMap<Integer, Deposito> depositos) {
 		this.depositos = depositos;
 	}
 
